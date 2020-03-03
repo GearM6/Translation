@@ -66,6 +66,7 @@
          List<TranslatorThread> threadList = new ArrayList<>();
          PriorityQueue textOrderQueue = new PriorityQueue();
          long startTime = System.nanoTime();
+         //uncomment this for multithreading
 //         while((line = reader.readLine()) != null){
 //             if(!line.equals("")){
 //                 paragraphBuilder.append(line);
@@ -77,10 +78,13 @@
 //                 paragraphBuilder = new StringBuilder();
 //             }
 //         }
+
+         //comment this for multithreading
          while((line = reader.readLine()) != null) {
              paragraphBuilder.append(line);
-
          }
+
+         //end of comment section
          TranslatorThread translatorThread = new TranslatorThread(paragraphBuilder.toString(), ++chunks);
          translatorThread.start();
          threadList.add(translatorThread);
